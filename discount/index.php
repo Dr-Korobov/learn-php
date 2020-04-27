@@ -4,11 +4,8 @@
         <?php
             $product = $_GET['product'];
             $price= $_GET['price'];
-            $qty= $_GET['qty'] ;
-            $total = $qty * $price;
-            $discount= $_GET['discount']; 
-                    //total with discount - twd;
-            $twd= $total*(1-$discount/100);
+            $qty= $_GET['qty'] ;            
+            $discount= $_GET['discount'];
 
             if (!is_numeric($price)){
                 echo 'Price is not a number!';
@@ -29,6 +26,10 @@
                 echo 'Quantity is not a positive number or equalto zero!';
                 exit;
              }              
+
+            $total = $qty * $price;
+                    //total with discount - twd;
+            $twd= $total*(1-$discount/100);
 
                  //localhost:8080/?product=antiseptic&price=50&qty=2&discount=30 
         ?>        
